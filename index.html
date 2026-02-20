@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pink Reset — Self Care</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
@@ -11,228 +11,643 @@
 :root{
   --pink:#ff4fa3;
   --rose:#ff85c9;
-  --light:#fff0f7;
-  --dark:#2a1024;
-  --glass:rgba(255,255,255,.15);
+  --peach:#ffd1e7;
+  --bg1:#ffe4f1;
+  --bg2:#ffd6ec;
+  --ink:#2a1024;
+  --muted:rgba(42,16,36,.70);
+  --glass:rgba(255,255,255,.22);
+  --shadow:0 16px 40px rgba(30,10,24,.12);
+  --radius:22px;
+  --stroke:rgba(255,79,163,.18);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  background:linear-gradient(135deg,#ffe4f1,#ffd6ec,#ffc9e7);
+  font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
   min-height:100vh;
-  color:var(--dark);
+  background: radial-gradient(900px 420px at 12% -8%, rgba(255,79,163,.25), transparent 60%),
+              radial-gradient(900px 420px at 88% 0%, rgba(255,133,201,.25), transparent 60%),
+              linear-gradient(135deg,var(--bg1),var(--bg2),#ffc9e7);
 }
 
-header{
-  text-align:center;
-  padding:60px 20px 40px;
+.container{max-width:1050px;margin:0 auto;padding:0 18px}
+
+header{padding:56px 0 28px;text-align:center}
+
+.brand{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:999px;
+  background:rgba(255,255,255,.30);
+  border:1px solid var(--stroke);
+  box-shadow:0 10px 30px rgba(0,0,0,.07);
+  margin-bottom:16px;
+}
+.brand .mark{
+  width:34px;height:34px;border-radius:14px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(255,79,163,.35),rgba(255,133,201,.25));
+  border:1px solid var(--stroke);
 }
 
 h1{
-  font-size:52px;
-  font-weight:800;
+  font-size:54px;font-weight:800;letter-spacing:-.02em;line-height:1.05;
   background:linear-gradient(90deg,var(--pink),var(--rose));
-  -webkit-background-clip:text;
-  color:transparent;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
+.subtitle{margin:14px auto 0;max-width:72ch;font-size:18px;color:var(--muted)}
+.navline{margin-top:14px;color:rgba(42,16,36,.55);font-weight:800;font-size:12px}
+.navline a{color:rgba(42,16,36,.75);text-decoration:none;padding:0 8px}
+.navline a:hover{color:rgba(42,16,36,.95)}
 
-.subtitle{
-  margin-top:12px;
-  font-size:18px;
-  opacity:.7;
+.section{padding:22px 0 6px}
+.section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:14px;
 }
-
-.section{
-  max-width:1000px;
-  margin:40px auto;
-  padding:20px;
-}
+h2{font-size:26px;font-weight:800;letter-spacing:-.01em}
+.small{font-size:13px;color:var(--muted)}
 
 .card{
   background:var(--glass);
-  backdrop-filter:blur(12px);
-  border-radius:20px;
-  padding:25px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  margin-bottom:20px;
+  backdrop-filter: blur(12px);
+  border-radius:var(--radius);
+  border:1px solid var(--stroke);
+  box-shadow:var(--shadow);
+  padding:22px;
 }
+.card + .card{margin-top:14px}
 
-h2{
-  margin-bottom:15px;
-  font-weight:800;
+.two{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
 }
+@media (max-width:900px){ .two{grid-template-columns:1fr;} }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:14px;
+}
+@media (max-width:900px){ .grid{grid-template-columns:repeat(2, minmax(0, 1fr));} }
+@media (max-width:640px){ .grid{grid-template-columns:1fr;} }
+
+.tile{
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(255,79,163,.15);
+  border-radius:18px;padding:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+  transition:transform .15s ease, filter .15s ease;
+}
+.tile:hover{transform:translateY(-2px);filter:brightness(1.02)}
+.tile h3{font-size:18px;margin-bottom:6px}
+.tile p{color:var(--muted);font-size:14px}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:800;color:rgba(42,16,36,.65);
+  margin-bottom:10px;
+}
+.pill{
+  display:inline-block;font-size:12px;font-weight:800;
+  padding:6px 10px;border-radius:999px;
+  background:rgba(255,79,163,.10);
+  border:1px solid rgba(255,79,163,.15);
+  color:rgba(42,16,36,.75);
 }
 
-.workout, .personal{
-  background:white;
-  border-radius:18px;
-  padding:18px;
-  box-shadow:0 8px 18px rgba(0,0,0,.05);
-  transition:.2s;
+.checklist{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.check{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:12px;border-radius:16px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(255,79,163,.15);
 }
-.workout:hover,.personal:hover{
-  transform:translateY(-3px);
-}
+.check input{margin-top:3px;width:18px;height:18px;accent-color:var(--pink)}
+.check .t{font-weight:800}
+.check .d{font-size:12px;color:var(--muted);margin-top:2px}
 
-.checklist-item{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:12px;
-  font-weight:600;
-}
-
-input[type="checkbox"]{
-  width:18px;
-  height:18px;
-  accent-color:var(--pink);
-}
-
-.progress{
-  margin-top:20px;
-  font-weight:700;
-  font-size:18px;
-}
-
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
 button{
-  background:linear-gradient(90deg,var(--pink),var(--rose));
-  border:none;
-  padding:10px 18px;
-  border-radius:999px;
-  color:white;
-  font-weight:700;
-  cursor:pointer;
-  margin-top:15px;
+  border:none;cursor:pointer;
+  padding:10px 14px;border-radius:999px;font-weight:800;
+  transition:transform .15s ease, filter .15s ease;
 }
+button:hover{transform:translateY(-1px);filter:brightness(1.02)}
+.btn-primary{
+  background:linear-gradient(90deg,var(--pink),var(--rose));
+  color:white;
+  box-shadow:0 12px 25px rgba(255,79,163,.25);
+}
+.btn-ghost{
+  background:rgba(255,255,255,.70);
+  border:1px solid rgba(255,79,163,.18);
+  color:rgba(42,16,36,.85);
+}
+.progress{margin-top:12px;font-weight:800;font-size:16px}
+.progress span{color:var(--pink)}
 
-button:hover{opacity:.85}
+.gallery{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+@media (max-width:900px){ .gallery{grid-template-columns:1fr;} }
+.photo{
+  overflow:hidden;border-radius:18px;border:1px solid rgba(255,79,163,.18);
+  background:rgba(255,255,255,.65);
+  box-shadow:0 12px 28px rgba(0,0,0,.07);
+}
+.photo img{width:100%;height:320px;object-fit:cover;display:block}
+.photo .cap{padding:12px 14px}
+.photo .cap .title{font-weight:900}
+.photo .cap .desc{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* Affirmations */
+.affirm{
+  display:grid;gap:12px;
+}
+.affirm-box{
+  padding:16px;
+  border-radius:18px;
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(255,79,163,.16);
+  position:relative;
+  overflow:hidden;
+}
+.affirm-box::before{
+  content:"";
+  position:absolute;inset:-2px;
+  background: radial-gradient(520px 200px at 10% 0%, rgba(255,79,163,.18), transparent 60%),
+              radial-gradient(520px 200px at 90% 10%, rgba(255,133,201,.14), transparent 60%);
+  pointer-events:none;
+}
+.affirm-box > *{position:relative}
+.quote{
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:-.01em;
+  line-height:1.25;
+}
+.quote .spark{color:var(--pink)}
+.quote-sub{margin-top:8px;color:var(--muted);font-size:13px}
+.toggle{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin-top:6px;
+}
+.switch{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.65);
+  border:1px solid rgba(255,79,163,.18);
+  padding:8px 10px;border-radius:999px;
+  font-weight:800;font-size:12px;color:rgba(42,16,36,.80);
+}
+.switch input{accent-color:var(--pink)}
+
+form{display:grid;gap:10px;margin-top:10px}
+input[type="text"], textarea{
+  width:100%;padding:12px 12px;border-radius:16px;
+  border:1px solid rgba(255,79,163,.18);
+  background:rgba(255,255,255,.78);
+  outline:none;font-family:inherit;color:var(--ink);
+}
+textarea{min-height:90px;resize:vertical}
+input:focus, textarea:focus{border-color:rgba(255,79,163,.35)}
+
+.comments{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.comment{
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(255,79,163,.15);
+  border-radius:16px;
+  padding:12px;
+}
+.comment .name{font-weight:900}
+.comment .text{color:var(--muted);font-size:13px;margin-top:4px}
+.comment .meta{color:rgba(42,16,36,.45);font-size:11px;margin-top:8px}
 
 footer{
+  padding:34px 0 40px;
   text-align:center;
-  padding:40px 20px;
-  opacity:.6;
-  font-size:14px;
+  color:rgba(42,16,36,.55);
+  font-weight:800;
+  font-size:12px;
 }
 </style>
 </head>
 
 <body>
+<header class="container" id="top">
+  <div class="brand">
+    <div class="mark">💗</div>
+    <div><b>Pink Reset</b></div>
+  </div>
 
-<header>
-  <h1>Pink Reset 💗</h1>
-  <p class="subtitle">Work out. Take personal time. Reset your energy daily.</p>
+  <h1>Pink Reset</h1>
+  <p class="subtitle">
+    Self-care helps people feel better because it supports your body and brain: it lowers stress, improves mood,
+    and gives you small routines that make life feel more manageable. When you take time to move, rest, and care for yourself,
+    you’re more likely to feel calm, confident, and energized.
+  </p>
+
+  <div class="navline">
+    <a href="#affirmations">Affirmations</a> •
+    <a href="#gallery">Gallery</a> •
+    <a href="#today">Checklist</a> •
+    <a href="#comments">Comments</a>
+  </div>
 </header>
 
-<section class="section">
-
-  <div class="card">
-    <h2>✨ Today’s Self Care Checklist</h2>
-
-    <div id="checklist">
-      <div class="checklist-item">
-        <input type="checkbox" class="check">
-        Drink water
+<main class="container">
+  <!-- AFFIRMATIONS -->
+  <section class="section" id="affirmations">
+    <div class="section-head">
+      <div>
+        <h2>Cute affirmations</h2>
+        <div class="small">Click for a new one anytime (saved on this device).</div>
       </div>
-
-      <div class="checklist-item">
-        <input type="checkbox" class="check">
-        Move your body (walk / gym / stretch)
-      </div>
-
-      <div class="checklist-item">
-        <input type="checkbox" class="check">
-        10 min personal time (no phone)
-      </div>
-
-      <div class="checklist-item">
-        <input type="checkbox" class="check">
-        Eat something nourishing
-      </div>
-
-      <div class="checklist-item">
-        <input type="checkbox" class="check">
-        Plan tomorrow
+      <div class="actions" style="margin-top:0">
+        <button class="btn-ghost" id="copyAff" type="button">Copy</button>
+        <button class="btn-primary" id="newAff" type="button">New affirmation ✨</button>
       </div>
     </div>
 
-    <div class="progress">
-      Completed: <span id="progressCount">0</span>/5
-    </div>
+    <div class="card">
+      <div class="affirm">
+        <div class="affirm-box">
+          <div class="quote" id="affText">
+            <span class="spark">✨</span> You are allowed to take up space and take your time.
+          </div>
+          <div class="quote-sub" id="affSub">Tiny steps still count. One gentle choice is enough.</div>
+        </div>
 
-    <button onclick="resetChecklist()">Reset</button>
-  </div>
-
-  <div class="card">
-    <h2>💪 Workout Ideas</h2>
-
-    <div class="grid">
-      <div class="workout">
-        <strong>Low Energy Reset</strong>
-        <p>15 minute walk + stretch + deep breathing.</p>
-      </div>
-
-      <div class="workout">
-        <strong>Glutes & Core</strong>
-        <p>Squats, hip bridges, planks (3 rounds).</p>
-      </div>
-
-      <div class="workout">
-        <strong>Spicy Intervals</strong>
-        <p>30 sec sprint / 30 sec rest x10.</p>
+        <div class="toggle">
+          <label class="switch">
+            <input type="checkbox" id="autoAff" />
+            Auto-generate every 30s
+          </label>
+          <span class="small">Perfect for a little “desktop bestie” energy.</span>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="card">
-    <h2>🕯 Personal Time Ideas</h2>
-
-    <div class="grid">
-      <div class="personal">
-        <strong>Skincare Ritual</strong>
-        <p>Wash, moisturize, lip balm, breathe.</p>
-      </div>
-
-      <div class="personal">
-        <strong>Micro Journaling</strong>
-        <p>1 win, 1 worry, 1 goal.</p>
-      </div>
-
-      <div class="personal">
-        <strong>Room Reset</strong>
-        <p>Make bed + clear desk + refill water.</p>
+  <!-- GALLERY -->
+  <section class="section" id="gallery">
+    <div class="section-head">
+      <div>
+        <h2>Self-care gallery</h2>
+        <div class="small">Your two photos (make sure the filenames match).</div>
       </div>
     </div>
-  </div>
 
-</section>
+    <div class="card">
+      <div class="gallery">
+        <figure class="photo">
+          <img src="workout.png" alt="Pink workout setup with mat and equipment" />
+          <figcaption class="cap">
+            <div class="title">Movement moment</div>
+            <div class="desc">A little workout is self-care: it boosts energy and mood — even if it’s just 12 minutes.</div>
+          </figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="vanity.png" alt="Pink self-care vanity with skincare and mirror" />
+          <figcaption class="cap">
+            <div class="title">Soft reset</div>
+            <div class="desc">Personal time helps you decompress, feel grounded, and treat yourself with kindness.</div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODAY -->
+  <section class="section" id="today">
+    <div class="section-head">
+      <div>
+        <h2>Today’s checklist</h2>
+        <div class="small">Tap to check off. Saved automatically on this device.</div>
+      </div>
+      <div class="actions" style="margin-top:0">
+        <button class="btn-ghost" id="resetDay" type="button">Reset today</button>
+        <button class="btn-primary" id="completeAll" type="button">Mark all done</button>
+      </div>
+    </div>
+
+    <div class="two">
+      <div class="card">
+        <h3 style="font-size:18px;margin-bottom:8px">Core self-care</h3>
+        <div id="coreList" class="checklist"></div>
+        <div class="progress">Completed: <span id="doneCount">0</span>/<span id="goalCount">0</span></div>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:18px;margin-bottom:8px">Movement + personal time</h3>
+        <div id="lifeList" class="checklist"></div>
+
+        <div class="grid" style="margin-top:14px">
+          <div class="tile">
+            <div class="kicker">💪 workout idea <span class="pill">20–30 min</span></div>
+            <h3>Glutes + core</h3>
+            <p>Squats → hip bridges → plank holds. 3 rounds, cute pace.</p>
+          </div>
+          <div class="tile">
+            <div class="kicker">🫧 low energy <span class="pill">12–20 min</span></div>
+            <h3>Soft reset walk</h3>
+            <p>Walk + posture check + deep breathing. Still counts, always.</p>
+          </div>
+          <div class="tile">
+            <div class="kicker">🕯 personal time <span class="pill">10–15 min</span></div>
+            <h3>Skincare + silence</h3>
+            <p>No phone. Wash, moisturize, lip balm. Breathe slowly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMENTS -->
+  <section class="section" id="comments">
+    <div class="section-head">
+      <div>
+        <h2>Comment corner</h2>
+        <div class="small">Share what you do for self-care 💗 (stored locally on this device).</div>
+      </div>
+      <div class="actions" style="margin-top:0">
+        <button class="btn-ghost" id="clearComments" type="button">Clear comments</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <form id="commentForm">
+        <input id="nameInput" type="text" placeholder="Your name (optional)" maxlength="40" />
+        <textarea id="textInput" placeholder="What do you do for self-care? (ex: gym, shower reset, journaling, skincare…)" maxlength="240"></textarea>
+        <div class="actions" style="margin-top:0">
+          <button class="btn-primary" type="submit">Post comment</button>
+        </div>
+      </form>
+
+      <div id="commentList" class="comments" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
 
 <footer>
-  Pink Reset — built with love 💗
+  Pink Reset • built with love 💗
 </footer>
 
 <script>
-const checks = document.querySelectorAll(".check");
-const progress = document.getElementById("progressCount");
+/* ---------- CHECKLIST (saved per-day) ---------- */
+const STORAGE_KEY = "pinkReset.v2";
+const tKey = () => {
+  const d = new Date();
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd}`;
+};
+
+const coreDefaults = [
+  { id: "water", title: "Drink water", desc: "Refill your bottle + take 6–10 sips." },
+  { id: "food", title: "Eat something nourishing", desc: "Protein + fruit/veg counts." },
+  { id: "sun", title: "Fresh air / sunlight", desc: "2 minutes outside resets your brain." },
+  { id: "tidy", title: "Tiny tidy", desc: "Bed, desk, or floor — pick one." },
+  { id: "sleep", title: "Sleep setup", desc: "Set an earlier bedtime OR prep for it." },
+];
+
+const lifeDefaults = [
+  { id: "move", title: "Movement", desc: "Walk, gym, yoga, or a short circuit." },
+  { id: "stretch", title: "Stretch (5 minutes)", desc: "Hips + back + neck. Slow breaths." },
+  { id: "personal", title: "Personal time", desc: "Skincare, journaling, shower, reading." },
+  { id: "noScroll", title: "No-scroll block", desc: "10 minutes without TikTok/IG." },
+  { id: "grat", title: "One kind thought", desc: "Say something nice to yourself—out loud." },
+];
+
+function loadState(){
+  try{ return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null"); }
+  catch{ return null; }
+}
+function saveState(s){ localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); }
+
+function initState(){
+  const state = loadState();
+  const today = tKey();
+
+  if(!state){
+    return {
+      day: today,
+      core: coreDefaults.map(x => ({...x, done:false})),
+      life: lifeDefaults.map(x => ({...x, done:false})),
+      comments: [],
+      affirm: null
+    };
+  }
+
+  // If day changed, keep comments + affirmation but reset checkboxes
+  if(state.day !== today){
+    state.day = today;
+    state.core = coreDefaults.map(x => ({...x, done:false}));
+    state.life = lifeDefaults.map(x => ({...x, done:false}));
+  }
+
+  // ensure keys exist
+  state.comments = state.comments || [];
+  return state;
+}
+
+let state = initState();
+
+const coreListEl = document.getElementById("coreList");
+const lifeListEl = document.getElementById("lifeList");
+const doneCountEl = document.getElementById("doneCount");
+const goalCountEl = document.getElementById("goalCount");
+
+function renderList(listEl, items, key){
+  listEl.innerHTML = "";
+  items.forEach((item, idx) => {
+    const row = document.createElement("label");
+    row.className = "check";
+    row.innerHTML = `
+      <input type="checkbox" ${item.done ? "checked" : ""} />
+      <div>
+        <div class="t">${item.title}</div>
+        <div class="d">${item.desc}</div>
+      </div>
+    `;
+    const cb = row.querySelector("input");
+    cb.addEventListener("change", () => {
+      state[key][idx].done = cb.checked;
+      saveState(state);
+      updateProgress();
+    });
+    listEl.appendChild(row);
+  });
+}
 
 function updateProgress(){
-  let count = 0;
-  checks.forEach(c => { if(c.checked) count++; });
-  progress.textContent = count;
+  const all = [...state.core, ...state.life];
+  const done = all.filter(x => x.done).length;
+  doneCountEl.textContent = done;
+  goalCountEl.textContent = all.length;
 }
 
-checks.forEach(c => c.addEventListener("change", updateProgress));
+document.getElementById("resetDay").addEventListener("click", () => {
+  state.core.forEach(x => x.done = false);
+  state.life.forEach(x => x.done = false);
+  saveState(state);
+  renderAll();
+});
 
-function resetChecklist(){
-  checks.forEach(c => c.checked = false);
+document.getElementById("completeAll").addEventListener("click", () => {
+  state.core.forEach(x => x.done = true);
+  state.life.forEach(x => x.done = true);
+  saveState(state);
+  renderAll();
+});
+
+function renderAll(){
+  renderList(coreListEl, state.core, "core");
+  renderList(lifeListEl, state.life, "life");
   updateProgress();
 }
-</script>
 
+/* ---------- COMMENTS (localStorage) ---------- */
+const commentForm = document.getElementById("commentForm");
+const nameInput = document.getElementById("nameInput");
+const textInput = document.getElementById("textInput");
+const commentList = document.getElementById("commentList");
+
+function timeStamp(){
+  const d = new Date();
+  return d.toLocaleString(undefined, { month:"short", day:"numeric", hour:"numeric", minute:"2-digit" });
+}
+
+function renderComments(){
+  commentList.innerHTML = "";
+  if(state.comments.length === 0){
+    const empty = document.createElement("div");
+    empty.className = "comment";
+    empty.innerHTML = `<div class="name">Be the first 💗</div><div class="text">Share your favorite self-care move.</div>`;
+    commentList.appendChild(empty);
+    return;
+  }
+
+  state.comments.slice().reverse().forEach(c => {
+    const div = document.createElement("div");
+    div.className = "comment";
+    div.innerHTML = `
+      <div class="name">${escapeHtml(c.name || "Anonymous")}</div>
+      <div class="text">${escapeHtml(c.text)}</div>
+      <div class="meta">${escapeHtml(c.time)}</div>
+    `;
+    commentList.appendChild(div);
+  });
+}
+
+commentForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = nameInput.value.trim();
+  const text = textInput.value.trim();
+  if(!text) return;
+
+  state.comments.push({ name, text, time: timeStamp() });
+  saveState(state);
+  nameInput.value = "";
+  textInput.value = "";
+  renderComments();
+});
+
+document.getElementById("clearComments").addEventListener("click", () => {
+  const ok = confirm("Clear all comments on this device?");
+  if(!ok) return;
+  state.comments = [];
+  saveState(state);
+  renderComments();
+});
+
+function escapeHtml(str){
+  return String(str)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+/* ---------- AFFIRMATIONS (generator + auto) ---------- */
+const affTextEl = document.getElementById("affText");
+const affSubEl = document.getElementById("affSub");
+const newAffBtn = document.getElementById("newAff");
+const copyAffBtn = document.getElementById("copyAff");
+const autoAff = document.getElementById("autoAff");
+
+const affirmations = [
+  "You’re doing better than you think — and you don’t need to earn rest.",
+  "Your body deserves kindness, not criticism.",
+  "Small steps still count. Tiny routines build big peace.",
+  "You are allowed to take up space and take your time.",
+  "You can be a work in progress and still be worthy of love.",
+  "Today: soft effort, strong boundaries, cute energy.",
+  "You don’t need motivation — you need a gentle start.",
+  "Even 10 minutes is a reset. Even one task is progress.",
+  "Move your body like you love it — not like you’re punishing it.",
+  "You are not behind. You are becoming.",
+  "Your mind deserves quiet. Your heart deserves ease.",
+  "You can do hard things, but you don’t have to do them harshly."
+];
+
+const subs = [
+  "One gentle choice is enough.",
+  "Hydrate, breathe, and come back to yourself.",
+  "Pick one: move • rest • reset — you win either way.",
+  "Soft days build strong people.",
+  "Consistency is built with kindness.",
+  "You’re allowed to go slowly."
+];
+
+function randomFrom(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
+
+function setAffirmation(text, sub){
+  affTextEl.innerHTML = `<span class="spark">✨</span> ${escapeHtml(text)}`;
+  affSubEl.textContent = sub;
+  state.affirm = { text, sub };
+  saveState(state);
+}
+
+function newAff(){
+  setAffirmation(randomFrom(affirmations), randomFrom(subs));
+}
+
+newAffBtn.addEventListener("click", newAff);
+
+copyAffBtn.addEventListener("click", async () => {
+  const t = (state.affirm?.text || "").trim();
+  const s = (state.affirm?.sub || "").trim();
+  const full = `✨ ${t}\n${s}`;
+  try{
+    await navigator.clipboard.writeText(full);
+    copyAffBtn.textContent = "Copied!";
+    setTimeout(() => copyAffBtn.textContent = "Copy", 900);
+  } catch {
+    alert("Copy blocked by your browser. You can manually select and copy the text.");
+  }
+});
+
+let autoTimer = null;
+autoAff.addEventListener("change", () => {
+  if(autoAff.checked){
+    autoTimer = setInterval(newAff, 30000);
+    newAff();
+  } else {
+    if(autoTimer) clearInterval(autoTimer);
+    autoTimer = null;
+  }
+});
+
+/* ---------- INITIAL RENDER ---------- */
+renderAll();
+renderComments();
+
+// restore last saved affirmation (if any)
+if(state.affirm && state.affirm.text){
+  setAffirmation(state.affirm.text, state.affirm.sub || randomFrom(subs));
+} else {
+  newAff();
+}
+</script>
 </body>
 </html>
