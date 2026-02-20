@@ -1,175 +1,238 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mukbang Bites — Food + Mukbang Culture</title>
-  <meta name="description" content="A cozy static site celebrating mukbangs, food, and flavors." />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pink Reset — Self Care</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#ff4fa3;
+  --rose:#ff85c9;
+  --light:#fff0f7;
+  --dark:#2a1024;
+  --glass:rgba(255,255,255,.15);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Plus Jakarta Sans",sans-serif;
+  background:linear-gradient(135deg,#ffe4f1,#ffd6ec,#ffc9e7);
+  min-height:100vh;
+  color:var(--dark);
+}
+
+header{
+  text-align:center;
+  padding:60px 20px 40px;
+}
+
+h1{
+  font-size:52px;
+  font-weight:800;
+  background:linear-gradient(90deg,var(--pink),var(--rose));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.subtitle{
+  margin-top:12px;
+  font-size:18px;
+  opacity:.7;
+}
+
+.section{
+  max-width:1000px;
+  margin:40px auto;
+  padding:20px;
+}
+
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(12px);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  margin-bottom:20px;
+}
+
+h2{
+  margin-bottom:15px;
+  font-weight:800;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.workout, .personal{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 8px 18px rgba(0,0,0,.05);
+  transition:.2s;
+}
+.workout:hover,.personal:hover{
+  transform:translateY(-3px);
+}
+
+.checklist-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+  font-weight:600;
+}
+
+input[type="checkbox"]{
+  width:18px;
+  height:18px;
+  accent-color:var(--pink);
+}
+
+.progress{
+  margin-top:20px;
+  font-weight:700;
+  font-size:18px;
+}
+
+button{
+  background:linear-gradient(90deg,var(--pink),var(--rose));
+  border:none;
+  padding:10px 18px;
+  border-radius:999px;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  margin-top:15px;
+}
+
+button:hover{opacity:.85}
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  opacity:.6;
+  font-size:14px;
+}
+</style>
 </head>
 
 <body>
-  <header class="site-header">
-    <nav class="nav">
-      <a class="logo" href="#top">Mukbang<span> Bites</span></a>
-      <div class="nav-links">
-        <a href="#trending">Trending</a>
-        <a href="#guides">Guides</a>
-        <a href="#creators">Creators</a>
-        <a href="#about">About</a>
-      </div>
-    </nav>
 
-    <section class="hero" id="top">
-      <div class="hero-text">
-        <p class="tag">Food • ASMR • Culture</p>
-        <h1>Mukbang Bites</h1>
-        <p class="subtitle">
-          A tiny, static site for mukbang lovers — trending bites, flavor guides, and creator spotlights.
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#trending">Explore trending</a>
-          <a class="btn" href="#guides">Read guides</a>
-        </div>
-        <p class="micro">No login. No ads. Just food vibes.</p>
+<header>
+  <h1>Pink Reset 💗</h1>
+  <p class="subtitle">Work out. Take personal time. Reset your energy daily.</p>
+</header>
+
+<section class="section">
+
+  <div class="card">
+    <h2>✨ Today’s Self Care Checklist</h2>
+
+    <div id="checklist">
+      <div class="checklist-item">
+        <input type="checkbox" class="check">
+        Drink water
       </div>
 
-      <div class="hero-card" aria-label="Featured">
-        <h3>Featured: “Crunch + Melt”</h3>
-        <p class="muted">
-          The ultimate mukbang combo: crispy outside, gooey inside — think fried chicken, cheesy corn,
-          mozzarella sticks, and hot sauces.
-        </p>
-        <div class="chips">
-          <span class="chip">Crunch</span>
-          <span class="chip">Cheese</span>
-          <span class="chip">Spicy</span>
-          <span class="chip">ASMR</span>
-        </div>
-      </div>
-    </section>
-  </header>
-
-  <main class="container">
-    <!-- TRENDING -->
-    <section id="trending" class="section">
-      <div class="section-head">
-        <h2>Trending bites</h2>
-        <p class="muted">Browse by vibe. This is static data you can edit in the HTML/JS.</p>
+      <div class="checklist-item">
+        <input type="checkbox" class="check">
+        Move your body (walk / gym / stretch)
       </div>
 
-      <div class="controls">
-        <div class="control">
-          <label for="search">Search</label>
-          <input id="search" type="text" placeholder="e.g., ramen, spicy, dessert…" />
-        </div>
-
-        <div class="control">
-          <label for="filter">Filter</label>
-          <select id="filter">
-            <option value="all">All</option>
-            <option value="spicy">Spicy</option>
-            <option value="noodles">Noodles</option>
-            <option value="fried">Fried</option>
-            <option value="seafood">Seafood</option>
-            <option value="dessert">Dessert</option>
-          </select>
-        </div>
+      <div class="checklist-item">
+        <input type="checkbox" class="check">
+        10 min personal time (no phone)
       </div>
 
-      <div id="cards" class="grid" aria-live="polite"></div>
-    </section>
-
-    <!-- GUIDES -->
-    <section id="guides" class="section">
-      <div class="section-head">
-        <h2>Flavor guides</h2>
-        <p class="muted">Short, practical “what to try next” notes.</p>
+      <div class="checklist-item">
+        <input type="checkbox" class="check">
+        Eat something nourishing
       </div>
 
-      <div class="two-col">
-        <article class="panel">
-          <h3>Build the perfect mukbang spread</h3>
-          <ol class="list">
-            <li><strong>Anchor:</strong> choose the “main” (ramen, chicken, seafood boil).</li>
-            <li><strong>Textures:</strong> add crunch + chew (pickles, fries, tteokbokki).</li>
-            <li><strong>Sauce flight:</strong> 2–3 dips (garlic, spicy, sweet).</li>
-            <li><strong>Reset:</strong> something fresh (cucumber, fruit, slaw).</li>
-          </ol>
-        </article>
-
-        <article class="panel">
-          <h3>ASMR-friendly picks</h3>
-          <ul class="list">
-            <li>Crispy chicken / karaage</li>
-            <li>Pickles + crunchy veggies</li>
-            <li>Chips + salsa / guac</li>
-            <li>Sticky rice cakes (tteokbokki)</li>
-            <li>Ice desserts (bingsu, shaved ice)</li>
-          </ul>
-        </article>
+      <div class="checklist-item">
+        <input type="checkbox" class="check">
+        Plan tomorrow
       </div>
-    </section>
+    </div>
 
-    <!-- CREATORS -->
-    <section id="creators" class="section">
-      <div class="section-head">
-        <h2>Creator spotlights</h2>
-        <p class="muted">Placeholder cards — add real links/names if you want.</p>
+    <div class="progress">
+      Completed: <span id="progressCount">0</span>/5
+    </div>
+
+    <button onclick="resetChecklist()">Reset</button>
+  </div>
+
+  <div class="card">
+    <h2>💪 Workout Ideas</h2>
+
+    <div class="grid">
+      <div class="workout">
+        <strong>Low Energy Reset</strong>
+        <p>15 minute walk + stretch + deep breathing.</p>
       </div>
 
-      <div class="grid">
-        <article class="card">
-          <h3>Creator A</h3>
-          <p class="muted">Known for spicy noodle challenges and fast cuts.</p>
-          <div class="chips">
-            <span class="chip">Spicy</span><span class="chip">Noodles</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Creator B</h3>
-          <p class="muted">Seafood boils + sauce recipes.</p>
-          <div class="chips">
-            <span class="chip">Seafood</span><span class="chip">Sauce</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Creator C</h3>
-          <p class="muted">Dessert ASMR and “mini” tasting menus.</p>
-          <div class="chips">
-            <span class="chip">Dessert</span><span class="chip">ASMR</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="section-head">
-        <h2>About</h2>
-        <p class="muted">
-          Mukbang Bites is a static demo site. Replace text, add photos, and publish for free on GitHub Pages.
-        </p>
+      <div class="workout">
+        <strong>Glutes & Core</strong>
+        <p>Squats, hip bridges, planks (3 rounds).</p>
       </div>
 
-      <div class="panel">
-        <h3>Quick publish (free)</h3>
-        <ol class="list">
-          <li>Create a GitHub repo</li>
-          <li>Upload these 3 files</li>
-          <li>Repo Settings → Pages → Deploy from branch</li>
-        </ol>
-        <p class="muted">Optional: add your own images later (keep them in an <code>/assets</code> folder).</p>
+      <div class="workout">
+        <strong>Spicy Intervals</strong>
+        <p>30 sec sprint / 30 sec rest x10.</p>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
 
-  <footer class="footer">
-    <p>© <span id="year"></span> Mukbang Bites • Built with HTML/CSS/JS</p>
-  </footer>
+  <div class="card">
+    <h2>🕯 Personal Time Ideas</h2>
 
-  <script src="script.js"></script>
+    <div class="grid">
+      <div class="personal">
+        <strong>Skincare Ritual</strong>
+        <p>Wash, moisturize, lip balm, breathe.</p>
+      </div>
+
+      <div class="personal">
+        <strong>Micro Journaling</strong>
+        <p>1 win, 1 worry, 1 goal.</p>
+      </div>
+
+      <div class="personal">
+        <strong>Room Reset</strong>
+        <p>Make bed + clear desk + refill water.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  Pink Reset — built with love 💗
+</footer>
+
+<script>
+const checks = document.querySelectorAll(".check");
+const progress = document.getElementById("progressCount");
+
+function updateProgress(){
+  let count = 0;
+  checks.forEach(c => { if(c.checked) count++; });
+  progress.textContent = count;
+}
+
+checks.forEach(c => c.addEventListener("change", updateProgress));
+
+function resetChecklist(){
+  checks.forEach(c => c.checked = false);
+  updateProgress();
+}
+</script>
+
 </body>
 </html>
